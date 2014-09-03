@@ -3,6 +3,13 @@ import java.util.Scanner;
 
 
 public class Juego {
+	
+	public static int x,n,c1,c2,c3,c4,c5,c6,c7,c8,c9;
+	public static String carta1="Guard", carta2="Guard",carta3="Guard",carta4="Guard",carta5="Guard";
+	public static String carta6="Priest", carta7="Priest",carta8="Baron",carta9="Baron",carta10="Handmaid";
+	public static String carta11="Handmaid", carta12="PrinCe",carta13="Prince",carta14="King",carta15="Countess",carta16="Princess";
+
+
 
 	public void reglas(){
 		System.out.println("soy regla");
@@ -42,7 +49,166 @@ public class Juego {
 					System.out.println(" ingresa nombre de rival PC: ");
 					p=entrada.next();
 					
+					//empieza for 1 PARA QUITAR 4 CARTAS
 					
+					for (int i = 0; i < 4; i++) {	
+					
+						if (i==0){
+							
+						
+							Random cartas=new Random();
+						
+							c1 =1+cartas.nextInt(16);
+						}	
+						
+						else if (i==1){
+								Random cartas=new Random();
+								c2=1+cartas.nextInt(15);
+							}
+						else if (i==2){
+							Random cartas=new Random();
+							c3=1+cartas.nextInt(14);
+						}
+						else if (i==3){
+							Random cartas=new Random();
+							c4=1+cartas.nextInt(13);
+						}
+						
+						
+						
+							if (c1==c2 || c1==c3 || c1==c4) {
+								Random cartas=new Random();
+								c1=1+cartas.nextInt(16);
+							}
+							
+							
+							else if (c2==c3 || c2==c4){
+								Random cartas=new Random();
+								c2=1+cartas.nextInt(15);
+							}
+							
+							else if (c3==c4){
+								Random cartas=new Random();
+								c3=1+cartas.nextInt(14);
+							}
+									
+					}//termina for1
+					
+					//PEDIR QUE PRESIONE TECLA PARA REVOLVER CARTAS
+					System.out.println("ESCRIBE CUALQUIER letra o digito para revolver");
+					String revolver1=entrada.next();
+					
+					
+						//CODIGO PARA MOSTRAR NUMERO Y NOMBRE DE CARTA QUITADA
+					
+					System.out.println("LAS CARTAS REMOVIDAS SON:\n ");
+			if (c1==1 || c1==2 || c1==3 || c1==4 || c1==5){
+
+				System.out.println("(1)  "+carta1);
+			}
+			else if(c1==6 || c1==7){
+				System.out.println("(2) "+carta6);
+			}
+			else if(c1==8 ||c1==9){
+				System.out.println("(3) "+carta8);
+			}
+			else if(c1==10 || c1==11){
+				System.out.println("(4) "+carta10);
+			}
+			else if(c1==12 || c1==13){
+				System.out.println("(5) "+carta12);
+			}
+			else if(c1==14){
+				System.out.println("(6) "+carta14);
+			}
+			else if(c1==15){
+				System.out.println("(7) "+carta15);
+			}
+			else if(c1==16){
+				System.out.println("(8) "+carta16);
+			}
+			
+			
+			if (c2==1 || c2==2 || c2==3 || c2==4 || c2==5){
+
+				System.out.println("(1)  "+carta1);
+			}
+			else if(c2==6 || c2==7){
+				System.out.println("(2) "+carta6);
+			}
+			else if(c2==8 ||c2==9){
+				System.out.println("(3) "+carta8);
+			}
+			else if(c2==10 || c2==11){
+				System.out.println("(4) "+carta10);
+			}
+			else if(c2==12 || c2==13){
+				System.out.println("(5) "+carta12);
+			}
+			else if(c2==14){
+				System.out.println("(6) "+carta14);
+			}
+			else if(c2==15){
+				System.out.println("(7) "+carta15);
+			}
+			else if(c2==16){
+				System.out.println("(8) "+carta16);
+			}
+			
+			
+			
+			if (c3==1 || c3==2 || c3==3 || c3==4 || c3==5){
+
+				System.out.println("(1)  "+carta1);
+			}
+			else if(c3==6 || c3==7){
+				System.out.println("(2) "+carta6);
+			}
+			else if(c3==8 ||c3==9){
+				System.out.println("(3) "+carta8);
+			}
+			else if(c3==10 || c3==11){
+				System.out.println("(4) "+carta10);
+			}
+			else if(c3==12 || c3==13){
+				System.out.println("(5) "+carta12);
+			}
+			else if(c3==14){
+				System.out.println("(6) "+carta14);
+			}
+			else if(c3==15){
+				System.out.println("(7) "+carta15);
+			}
+			else if(c3==16){
+				System.out.println("(8) "+carta16);
+			}
+					
+			
+			if (c4==1 || c4==2 || c4==3 || c4==4 || c4==5){
+
+				System.out.println("(1)  "+carta1);
+			}
+			else if(c4==6 || c4==7){
+				System.out.println("(2) "+carta6);
+			}
+			else if(c4==8 ||c4==9){
+				System.out.println("(3) "+carta8);
+			}
+			else if(c4==10 || c4==11){
+				System.out.println("(4) "+carta10);
+			}
+			else if(c4==12 || c4==13){
+				System.out.println("(5) "+carta12);
+			}
+			else if(c4==14){
+				System.out.println("(6) "+carta14);
+			}
+			else if(c4==15){
+				System.out.println("(7) "+carta15);
+			}
+			else if(c4==16){
+				System.out.println("(8) "+carta16);
+			}
 					
 					// aleatorio para ver quien empieza el juego
 					
