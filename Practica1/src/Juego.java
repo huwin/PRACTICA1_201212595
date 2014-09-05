@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Juego {
 	
 	public static int h1,h2,h3,h4,h5,h6,h7,pc1,pc2,pc3,pc4,pc5,pc6,pc7,n,c1,c2,c3,c4;
-	public static String carta1="(1) Guard", carta2="(2) Priest",carta3="(3) Baron",carta4="(4) Handmaid",carta5="(1) Prince";
+	public static String carta1="(1) Guard", carta2="(2) Priest",carta3="(3) Baron",carta4="(4) Handmaid",carta5="(5) Prince";
 	public static String carta6="(6) King", carta7="(7) Countess",carta8="(8) Princess",carta9="(#)SinCartaAun";
 	public static String j,p;
 	public static String j1,j2,j3,j4,j5,j6,j7,j8;
 	public static String p1,p2,p3,p4,p5,p6,p7,p8;
-	public static int a,b,c,d,e,f,g,h;
+	public static int a,b,c,d,e,f,g,h,token=3;
 
 
 	public void reglas(){
@@ -51,7 +51,7 @@ public class Juego {
 					regresar=entrada.nextInt();
 					Juego.main(null);
 					}	
-				else if  (acum==1 || acum==3){
+				else if  (acum<4){
 					System.out.println("ingresa tu nombre: ");
 					j=entrada.next();
 					System.out.println(" ingresa nombre de rival PC: ");
@@ -414,7 +414,7 @@ public void CartaCompu(){		//METODO PARA CARTA1 PC
 	}
 	
 	//mostrar primera carta COMPUTADORA
-	System.out.println("primera carta compu ");
+
 	if (pc1< 6) {
 		p1=carta1;
 	}
@@ -492,7 +492,7 @@ public void SegundaCartaHumano(){		//METODO PARA CARTA 2 HUMANO
 
 Scanner entrada1=new Scanner(System.in);
 	
-	 System.out.println("jugador "+j+"                      pc"+p);
+	 System.out.println("jugador "+j+ "  "+ acum +"tokens"    +"           pc"+p);
 	 System.out.println("tienes en tu mano: "+ j1+"  "+j2);
 	 System.out.println("(1) Usar carta #1");
 	 System.out.println("(2) Usar carta #2");
@@ -500,39 +500,175 @@ Scanner entrada1=new Scanner(System.in);
 	 a=entrada1.nextInt();
 	 switch (a) {
 	case 1:
-		if (h1 < 6) {
+		if (h1 < 6) {  						//codigo si carta es guard
 			System.out.println("adivina al rival y gana");
 			System.out.println("cual crees que tiene el rival ");
 			System.out.println(""+carta2+carta3+carta4+carta5+carta6+carta7+carta8);
 			b=entrada1.nextInt();
 			if (b==2 && p1==carta2) {
-				System.out.println("ganaste ");
+				System.out.println("ganaste tiene "+p1);
 			}//fin if 2
 			else if (b==3 && p1==carta3) {
-				System.out.println("ganaste");
+				System.out.println("ganaste tiene "+p1);
 			}
 			else if (b==4 && p1==carta4) {
-				System.out.println("ganaste");
+				System.out.println("ganaste tiene "+p1);
 
 			}
 			else if (b==5 && p1==carta5) {
-				System.out.println("ganaste");
+				System.out.println("ganaste tiene "+p1);
 			}
 			else if (b==6 && p1==carta6) {
-				System.out.println("ganaste");
+				System.out.println("ganaste tiene "+p1);
 
 			}
 			else if (b==7 && p1==carta7) {
-				System.out.println("ganaste");
+				System.out.println("ganaste tiene "+p1);
 
 			}
 			else if (b==8 && p1==carta8) {
-				System.out.println("ganaste");
+				System.out.println("ganaste tiene "+p1);
 			}
 			else{
-				System.out.println("no adivinaste");
+				System.out.println("no adivinaste.. tiene "+p1);
 			}
+			acum=2;
 		}//fin if1
+		else if (h1==6 || h1==7) {						//if si selecc1 es priest
+			System.out.println("tu rival tiene estas carta "+ p1+"\n");
+		}
+		else if (h1==8 || h1==9) {   					  //if si selecc1 es baron
+			System.out.println("comparando manos con rival ");
+			System.out.println("tu "+j2+"  rival  "+p1);
+			if (h2>pc1) {
+				System.out.println("Tu cartas es mayao    GANASTE");
+				acum=2;
+			}
+			else if (h2<pc1){
+				System.out.println("tu HAS PERDIDO");
+			}
+			else if (h2==pc1){
+				System.out.println("empates... sigue el juego");
+			}
+		} // fin if sellec1 baron
+		else if (h1==10 || h1==11) {					//if si selecc1 es handmaid
+			System.out.println("estas protegido 1 turno");
+			
+		}
+		else if (h1==12 || h1 ==13 ) {					//if si selecc1 es prince
+	System.out.println("que mano deseas botar");
+	System.out.println("(1) la tuya        (2)  oponente");
+     b=entrada1.nextInt();
+     		if (b==1) {    //if de seleccion de mazo nuevo
+     		
+     			
+     			for (int i = 0; i < 1; i++) {    //inicia for de nuevo mazo tuyo con h3
+     				
+     				if(i==0){
+     				
+     						Random cartas=new Random();
+     						h3=1+cartas.nextInt(16);	
+     						}
+     						else if (h3==c1 || h3==c2 || h3==c3 || h3==c4 || h3==h1 || h3==pc1 ||h3==h2) {
+     						Random cartas1=new Random();
+     						h3=1+cartas1.nextInt(16);
+     						}
+     					} //termina for de segunda humano
+     				 if (h3<6) {
+     						j3=carta1;
+     					}
+     					else if (h3==6 || h3==7) {
+     						j3=carta2;
+
+     					}
+     					else if (h3==8 || h3==9){
+     						j3=carta3;
+
+     					}
+     					else if (h3==10 || h3==11){
+     						j3=carta4;
+
+     					}
+     					else if (h3==12 || h3==13){
+     						j3=carta5;
+
+     					}
+     					else if (h3==14){
+     						j3=carta6;
+
+     					}
+     					else if (h3==15){
+     						j3=carta7;
+
+     					}
+     					else if (h3==16){
+     						j3=carta8;
+
+     					}	//termina for de mazo tuyo
+     			System.out.println("tu nueva carta es: "+j3);
+     		}     //fin if seleccion botar mazo
+     		
+     		
+     		else if (b==2) {  //if si selecc1 con carta prince es oponente
+				
+				//inicia for de nuevo mazo carta1 pc
+				for (int i = 0; i < 1; i++) {   //for para generar nueva carta1 pc
+					if (i==0) {
+					
+						Random cartas=new Random();
+						pc2=1+cartas.nextInt(16);  //PRIMERA CARTA PARA A COMPU
+					}
+				
+					
+					 if (pc2==h1 ||pc2==c1 || pc2==c2 || pc2==c3 | pc2==c4 ||pc2==pc1) {
+						Random cartas=new Random();
+						pc2=1+cartas.nextInt(16);//PRIMERA CARTA PARA COMPU
+					}
+				}
+				
+				//mostrar primera carta COMPUTADORA
+				if (pc2< 6) {
+					p2=carta1;
+				}
+				else if (pc2==6 || pc2==7) {
+					p2=carta2;
+					}
+				else if (pc2==8 || pc2==9){
+					p2=carta3;
+					}
+				else if (pc2==10 || pc2==11){
+					p2=carta4;
+					}
+				else if (pc2==12 || pc2==13){
+					p2=carta5;
+					}
+				else if (pc2==14){
+					p2=carta6;
+					}
+				else if (pc2==15){
+					p2=carta7;
+					}
+				else if (pc2==16){
+					p2=carta8;
+					}	
+				
+			}  //fin if b igual a 2
+		} // fin if si h1 igual a 13-14
+		
+		else if (h1==14) {				//if usando king carta king
+			System.out.println("se intercambiaran mazos");
+			h4=pc1;		//nuevo numero de carta ya intercambiado
+			j4=j1;			//nombre de nueva carta
+			pc3=h2;
+			p3=j2;
+			System.out.println("ahora tu carta es "+j4);
+			}
+		
+		else if (h1==15) {  //if usando carta countess
+			
+			
+			
+		}   //fin if carta coutess
 		
 		break;
 
