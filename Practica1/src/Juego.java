@@ -131,7 +131,7 @@ public class Juego {
 				}
 					else if (tok==2){
 						acum+=3;
-					System.out.println("jugando a : "+acum);
+					System.out.println("jugando a : "+acum+"  tokens");
 					
 				System.out.println("presione 1 para regresar");
 				regresar=entrada.nextInt();
@@ -498,7 +498,7 @@ public void SegundaCartaHumano(){		//METODO PARA CARTA 2 HUMANO
 		
 
 Scanner entrada1=new Scanner(System.in);
-	System.out.println("tu nueva carta es:  "+j2+"\n \n");
+	System.out.println(" \n \n tu nueva carta es:  "+j2+"\n \n");
 	 System.out.println("jugador "+j+ "  "+ acum +"tokens"    +"           pc"+p);
 	 System.out.println("tienes en tu mano: "+ j1+"  "+j2);
 	 System.out.println("(1) Usar carta #1");
@@ -510,7 +510,7 @@ Scanner entrada1=new Scanner(System.in);
 		Juego llamar3=new Juego();
 		llamar3.CartaCompu();
 		if (h1 < 6) {  						//codigo si carta es guard
-			System.out.println("adivina al rival y gana");
+			System.out.println("adivina al rival y gana \n");
 			System.out.println("cual crees que tiene el rival ");
 			System.out.println(""+carta2+carta3+carta4+carta5+carta6+carta7+carta8);
 			b=entrada1.nextInt();
